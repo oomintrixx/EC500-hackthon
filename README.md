@@ -36,6 +36,6 @@ https://docs.google.com/document/d/1JWQu_GTM7QKCp5zlLjdlWdxtNVslb-jGqFCkIWc_xe4/
   
   Interface:
   
-      database.set(key, value)
-      database.get(key, value)
+      database.set(tablename, key, value)
+      database.get(tablename, key, value)
     
