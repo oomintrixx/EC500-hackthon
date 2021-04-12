@@ -13,6 +13,7 @@ https://docs.google.com/document/d/1JWQu_GTM7QKCp5zlLjdlWdxtNVslb-jGqFCkIWc_xe4/
 
 ### Datebase 
   Client:
+  
     table one: table used for store chat_record
     primary ID, username, text(content of chat), time(the time of the chat)
   
