@@ -9,6 +9,7 @@
     python client.py  [username] [port]
     python client.py Dog 42001
     python client.py Cat 42002
+    PORT 42000 is used by server
  
   
   ### How to use command line
