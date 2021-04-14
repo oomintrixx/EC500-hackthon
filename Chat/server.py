@@ -26,11 +26,21 @@ class server(object):
             data = data.decode("utf-8")
             data = json.loads(data)
             if data["cmd"] == "LOGIN":
+
                 print(data.get("username") + " LOGIN")
                 self.user_stat[data.get("username")] = True
                 self.userlist[data.get("username")] = address
                 self.userlistR[address] = data.get("username")
                 print(self.userlist)
+
+                package = {}
+                package["cmd"] = "SERVER"
+                package["userlist"] = self.userlist
+                package = json.dumps(package)
+                package = package.encode("utf-8")
+                for u, returnaddr in self.userlist.items():
+                    self.UDP.sendto(package, returnaddr)
+
 
             if data["cmd"] == "LOGOFF":
                 print(data.get("username") + " LOGOFF")
@@ -38,6 +48,12 @@ class server(object):
                 del self.userlist[data.get("username")]
                 print(self.userlist)
 
+                package = {}
+                package["cmd"] = "SERVER"
+                package["userlist"] = self.userlist
+                package = json.dumps(package)
+                package = package.encode("utf-8")
+                self.UDP.sendto(package, address)
 
             if data["cmd"] == "UPDATE":
                 print(data.get("username") + " UPDATE")

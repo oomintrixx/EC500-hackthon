@@ -1,6 +1,7 @@
 import socket
 import json
 import threading
+from time import  sleep
 from threading import Thread, Event, Lock
 from queue import Queue
 import sys
@@ -76,7 +77,7 @@ class Client(object):
     def receive(self):
         while True:
             data, address = self.UDP.recvfrom(1024)
-            #print(data, address)
+            #print(data, address)1
             peername = self.DNSR.get(address)
             if peername is None:
                 peername = self.DNSR_OL.get(address)
@@ -105,11 +106,11 @@ class Client(object):
                 if package.get("cmd") == "SERVER":
                     self.DNS_OL = package.get("userlist")
                     for a, b in self.DNS_OL.items():
+                        self.DNS_OL[a] = tuple(b)
+                    for a, b in self.DNS_OL.items():
                         self.DNSR_OL[tuple(b)] = a
 
-                    print("Online Users: ")
-                    for username, address in self.DNS_OL.items():
-                        print(username)
+
 
 
 
@@ -180,7 +181,8 @@ class Client(object):
                 if cmd == "LIST" and target.upper() == "FRIENDS":
                     print("============You have following friends:==============")
                     for a, b in self.DNS.items():
-                        print(a)
+                        if a !="server" and a!=self.username:
+                            print(a)
 
                 if cmd == "LIST" and target.upper() == "APPLY":
                     print("============Friend applications pending:==============")
@@ -197,14 +199,20 @@ class Client(object):
                     package["username"] = self.username
                     package = json.dumps(package)
                     self.sendbuffer.put((server_address, package))
+                    sleep(1)
+                    print("Online Users: ")
+                    for username, address in self.DNS_OL.items():
+                        if username != self.username:
+                            print(username)
 
                 if cmd == "ADD":
                     # Choose the server address
                     if self.DNS_OL.get(target) is None:
-                        print(target+ "is not online")
+                        print(target + "is not online")
                     else:
                         # Build a json-string package
-
+                        self.DNS[target] = self.DNS_OL.get(target)
+                        self.DNSR[self.DNS_OL.get(target)] =target
                         package = {}
                         package["cmd"] = "FRIEND"
                         package["username"] = self.username
@@ -219,9 +227,9 @@ class Client(object):
                         self.DNS[target] = addr
                         self.DNSR[addr] = target
                         print("Confirm Successfully")
+                        print(self.DNS)
 
-                if cmd == "EXIT":
-                    pass
+
 
 
 
