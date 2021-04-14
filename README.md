@@ -71,7 +71,7 @@ will return
 ```
 [(1, 'test1', '127.0.0.0', 4200, '10x')]
 ```
-If users want to access the username from the abov tuple, user can do
+If users want to access the username from the above tuple, user can do
 ```python
 var[0][1]
 ```
