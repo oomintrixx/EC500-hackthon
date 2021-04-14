@@ -14,8 +14,8 @@ Please run the following codes:
   ### How to use command line
      SET PUBLIC  - make you visible by other users
      SET PRIVATE - hide yourself
-     CHAT [target] - Chat with a user, the user must be "PUBLIC" or in your friendlist
-     !DIS!   Quit the chat 
+     CHAT [target] - Chat with a user and build a session, the user must be "PUBLIC" or in your friendlist
+     !DIS!   Quit the chat session 
      LIST ONLINE - show all online users
      LIST FRIENDS - show all your friends
      LIST APPLY - show the friend applications from others
