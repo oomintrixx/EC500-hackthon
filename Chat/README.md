@@ -29,4 +29,8 @@
     Chat record
     Message notificaton
     Friend request notification
-    User friendly interface
+    Good UI
+  
+  ### Others
+     Using socket Library and UDP protocal for communication 
+     Using multiple threads: One thread for sending message, one thread for receiving message, one thread for the Command line Interface
