@@ -1,4 +1,32 @@
- ## Notes on output and how to access output data from sqlite database python file
+### Datebase 
+  Client:
+  
+    table one: table used for store chat_record
+    primary ID, username, text(content of chat), time(the time of the chat)
+  
+    table two: table used for store friends
+    primary ID, username(string), ip address(string), port(int), public key(string)
+    
+    table three: table used for store online_users
+    primary ID, username(string), ip address(string), port(int), public key(string)
+    
+    table four: table used for personal informations
+    primary ID, username(string), ip address(string), port(int), public key(string), private key(string)
+    
+  Server:
+    
+    table three: table used for store online_users
+    primary ID, username(string), ip address(string), port(int), public key(string)
+    
+    table two: table userd for password
+    primary ID, username(string), password(string)
+  
+  Interface:
+  
+      database.set(tablename, key, value)
+      database.get(tablename, key, value)
+
+## Notes on output and how to access output data from sqlite database python file
  
 1. **retrieve_all()** function
 * returns a tuple of all information stored inside a database
