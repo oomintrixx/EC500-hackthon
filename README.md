@@ -11,7 +11,7 @@
 ### proposal
 https://docs.google.com/document/d/1JWQu_GTM7QKCp5zlLjdlWdxtNVslb-jGqFCkIWc_xe4/edit?ts=606e1b52
 
-### Detail of database and client can be find in each folder
+### Detail of database and client can be find in each folder's Readme
 
 ### Team 6
 * Yunze Lian, yzelian@bu.edu
