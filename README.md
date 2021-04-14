@@ -47,7 +47,7 @@ https://docs.google.com/document/d/1JWQu_GTM7QKCp5zlLjdlWdxtNVslb-jGqFCkIWc_xe4/
 
 | PRIMARY_ID  | USERNAME  | IP_ADDRESS | PORT | PUBLIC_KEY |
 | ---------- | ---------- | ---------- | ---------- | ---------- |
-| 1      | test1 | 127.0.0.0 | 4200 | 11x |
+| 1      | test1 | 127.0.0.0 | 4200 | 10x |
 | 2      | test2 | 127.0.0.2| 4202 | 12x |
 | 3 | test3 | 127.0.0.3 | 4203 | 13x |
 
